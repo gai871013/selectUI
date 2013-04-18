@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>select美化</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.selectUI.js"></script>
+<script type="text/javascript">
+$(function(){
+
+  
+	$(".search").selectUI({	//".search"为class为 search 的div对象
+			ipt:".select",	//".select"为被模拟的<input class="select" />对象替换<select></select>
+			tp:".type",		//<select></select>下默认显示的option值
+			tpbx:".typebox"	//select 下 option 值列表
+		});	
+		
+	$(".search222").selectUI({
+			ipt:".select222",
+			tp:".type222",
+			tpbx:".typebox222"
+		});	
+
+		
+	$(".v1").click(function(){
+		var v=$(".select").val()
+		alert(v);
+	});
+	
+	$(".v2").click(function(){
+		var _v=$(".tbname_select").val()
+		alert(_v);
+	});
+	
+	$(".v3").click(function(){
+		var _v=$(".select222").val()
+		alert(_v);
+	});
+});
+
+</script>
+
+
+
+<style type="text/css">
+*{font-size:12px; margin:0 auto; padding:0;}
+.search,.search222{position:relative; width:100px; height:30px; float:left;}
+.type,.type222{cursor:pointer; border-radius:15px; border:1px solid #dbdbdb; padding:5px 30px 5px 10px; width:50px;}
+.open{border-radius:13px 13px 0 0; border-bottom:0; background:#fafafa;}
+.typebox,.typebox222{display:none; cursor:pointer; border-radius:0 0 15px 15px; border:1px solid #dbdbdb; border-top:0; padding:0 5px 5px; background:#fafafa; width:80px;}
+dd{line-height:20px; border-bottom:1px dashed #dbdbdb; width:70px; color:#565656; border-radius:5px; padding:0 5px;}
+dd:hover{background:#357ebd; border-bottom:1px solid #fafafa; color:#ff0;}
+dd:last-child{border:none;}
+.clearFix{clear:both; padding:150px 0;}
+input[type="button"]{padding:5px; cursor:pointer;}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Case 1.测试input使用text类型 （网页中将<i>input</i>[type="hidden"]设置为<i>hidden</i>即可完美实现input+div模拟select下拉框。）</h1>
+<!-- Case 1. begin  -->
+<div class="search">
+	<input type="text" name="tbname" size="10" class="select" value="soft">
+	<div class="type">软件游戏</div>
+	<dl class="typebox">
+        <dd searchtype="soft">软件游戏</dd>
+        <dd searchtype="bell">铃声</dd>
+        <dd searchtype="wallpaper">壁纸</dd>
+        <dd searchtype="news">资讯</dd>
+    </dl>
+</div>
+<!-- Case 1. end  -->
+<input type="button" class="v1" value="查看值(value)" />
+
+<div class="clearFix">
+<h1>原始select</h1>
+
+<!-- 原始select begin  -->
+<select name="tbname_select" class="tbname_select">
+	<option value="soft">软件游戏(value="soft")</option>
+	<option value="bell">铃声(value="bell")</option>
+	<option value="wallpaper">壁纸(value="wallpaper")</option>
+	<option value="news">资讯(value="news")</option>
+</select>
+<!-- 原始select end  -->
+<input type="button" class="v2" value="查看值(value)" />
+
+</div>
+
+<h1>Case 2. <i>input</i>[type="hidden"]设置为<i>hidden</i>即可完美实现input+div模拟select下拉框</h1>
+
+<!-- Case 2. begin  -->
+<div class="search222">
+	<input type="hidden" name="tbname2" class="select222" value="soft222">
+	<div class="type222">软件游戏</div>
+	<dl class="typebox222">
+        <dd searchtype="soft222">软件游戏</dd>
+        <dd searchtype="bell222">铃声</dd>
+        <dd searchtype="wallpaper222">壁纸</dd>
+        <dd searchtype="news222">资讯</dd>
+        <dd searchtype="bell2">铃声2</dd>
+        <dd searchtype="wallpaper2">壁纸2</dd>
+        <dd searchtype="news2">资讯2</dd>
+    </dl>
+</div>
+
+<!-- Case 2. end  -->
+
+<input type="button" class="v3" value="查看值(value)" />
+</body>
+</html>
